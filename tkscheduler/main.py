@@ -5,7 +5,6 @@ class TkScheduler:
         self.root = root
         self.id = None
         self.fn = None
-        self.selfScheduleId = None
 
         self.singleShotState = False
         self.interval = 0
@@ -15,14 +14,10 @@ class TkScheduler:
         return root.after(ms, fn)
 
     def isActive(self):
-        return self.id != None or self.selfScheduleId != None
 
     def stop(self):
-        if self.id != None or self.selfScheduleId != None:
             self.root.after_cancel(self.id)
-            self.root.after_cancel(self.selfScheduleId)
             self.id = None
-            self.selfScheduleId = None
         else:
             print("WARNING: Job already cancelled or not started yet")
 
@@ -32,7 +27,6 @@ class TkScheduler:
             return
 
         self.id = self.root.after(ms, self.fn)
-        self.selfScheduleId = self.root.after(ms, lambda: self.start(ms))
 
 def funnyCrash():
     print("This is a module and not a program. Stop running it as a program, it is not going to function as one.")
