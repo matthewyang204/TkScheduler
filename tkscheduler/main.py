@@ -3,10 +3,18 @@ import sys
 class TkScheduler:
     def __init__(self, root):
         self.root = root
+        self.id = None
+        self.fn = None
+
+        self.singleShotState = False
+        self.interval = 0
+        self.active = False
 
     @staticmethod
     def singleShot(root, ms, fn):
         return root.after(ms, fn)
+
+    
 
 def funnyCrash():
     print("This is a module and not a program. Stop running it as a program, it is not going to function as one.")
