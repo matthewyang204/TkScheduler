@@ -1,5 +1,9 @@
 import sys
 
+class TkScheduler:
+    def __init__(self, root):
+        self.root = root
+
 def funnyCrash():
     print("This is a module and not a program. Stop running it as a program, it is not going to function as one.")
     print("The correct way to use it is to import as a module for use in another program, so maybe go try that instead.")
