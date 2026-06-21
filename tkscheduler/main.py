@@ -29,17 +29,21 @@ class TkScheduler:
             self.id = self.root.after(self.interval, self._timeout)
 
     def stop(self):
+        if self.id is not None:
             self.root.after_cancel(self.id)
             self.id = None
         else:
             print("WARNING: Job already cancelled or not started yet")
 
     def start(self, ms):
-        if self.id != None:
+        if self.id is not None:
             print("WARNING: Not starting new job, job already in progress")
             return
-
-        self.id = self.root.after(ms, self.fn)
+        if not callable(self.fn):
+            print("ERROR: Scheduling job failed; function not set")
+            return
+        self.interval = ms
+        self.id = self.root.after(ms, self._timeout)
 
 def funnyCrash():
     print("This is a module and not a program. Stop running it as a program, it is not going to function as one.")
