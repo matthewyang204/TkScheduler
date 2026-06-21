@@ -15,6 +15,7 @@ class TkScheduler:
         return root.after(ms, fn)
 
     def isActive(self):
+        return self.id != None or self.selfScheduleId != None
 
     def stop(self):
         if self.id != None or self.selfScheduleId != None:
