@@ -6,7 +6,7 @@ authors = [
 maintainers = [
     {name = "matthewyang204", email = "matthew.yang204@gmail.com"},
 ]
-version = "0.1.0"
+version = "0.1.1"
 description = "A timer/scheduler for Tkinter, built to function similarly to PyQt's QTimer"
 readme = "README.md"
 license = "GPL-3.0-or-later"
