@@ -6,7 +6,7 @@ class TkScheduler:
 
     @staticmethod
     def singleShot(root, ms, fn):
-        root.after(ms, fn)
+        return root.after(ms, fn)
 
 def funnyCrash():
     print("This is a module and not a program. Stop running it as a program, it is not going to function as one.")
