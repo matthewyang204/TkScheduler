@@ -18,8 +18,9 @@ class TkScheduler:
         return self.id is not None
 
     def _timeout(self):
-        if callable(self.fn):
-            self.fn()
+        fn = self.fn
+        if callable(fn):
+            fn()
         else:
             print("WARNING: Not running uncallable function")
 
