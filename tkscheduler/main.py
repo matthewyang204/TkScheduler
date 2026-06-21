@@ -13,6 +13,7 @@ class TkScheduler:
     def singleShot(root, ms, fn):
         return root.after(ms, fn)
 
+    @property
     def isActive(self):
 
     def stop(self):
