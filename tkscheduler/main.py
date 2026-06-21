@@ -15,6 +15,18 @@ class TkScheduler:
 
     @property
     def isActive(self):
+        return self.id is not None
+
+    def _timeout(self):
+        if callable(self.fn):
+            self.fn()
+        else:
+            print("WARNING: Not running uncallable function")
+
+        if self.singleShotState:
+            self.id = None
+        else:
+            self.id = self.root.after(self.interval, self._timeout)
 
     def stop(self):
             self.root.after_cancel(self.id)
