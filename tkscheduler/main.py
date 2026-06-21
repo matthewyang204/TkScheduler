@@ -4,6 +4,10 @@ class TkScheduler:
     def __init__(self, root):
         self.root = root
 
+    @staticmethod
+    def singleShot(root, ms, fn):
+        root.after(ms, fn)
+
 def funnyCrash():
     print("This is a module and not a program. Stop running it as a program, it is not going to function as one.")
     print("The correct way to use it is to import as a module for use in another program, so maybe go try that instead.")
